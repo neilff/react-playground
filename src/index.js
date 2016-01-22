@@ -3,7 +3,8 @@ import './styles/styles.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { ReduxRouter } from 'redux-router';
+
+import App from './containers/App';
 
 import configureStore from './store/configureStore';
 
@@ -12,7 +13,7 @@ const store = configureStore({});
 ReactDOM.render(
   <div>
     <Provider store={ store }>
-      <ReduxRouter />
+      <App />
     </Provider>
   </div>,
   document.getElementById('root')

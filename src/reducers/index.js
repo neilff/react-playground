@@ -1,10 +1,5 @@
-import { combineReducers } from 'redux';
-import { routerStateReducer } from 'redux-router';
-import { reducer as formReducer } from 'redux-form';
+import example from './example';
 
-const rootReducer = combineReducers({
-  router: routerStateReducer,
-  form: formReducer,
-});
-
-export default rootReducer;
+export default {
+  example,
+};

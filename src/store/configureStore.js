@@ -1,11 +1,13 @@
-import { createStore, applyMiddleware, compose } from 'redux';
-import { reduxReactRouter } from 'redux-router';
+import {
+  createStore,
+  applyMiddleware,
+  compose,
+  combineReducers,
+} from 'redux';
 
 import thunk from 'redux-thunk';
-import history from './history';
-import routes from './routes';
+import reducers from '../reducers';
 import logger from './logger';
-import rootReducer from '../reducers';
 
 function configureStore(initialState) {
   const store = compose(
@@ -13,11 +15,7 @@ function configureStore(initialState) {
       thunk,
       logger,
     ),
-    reduxReactRouter({
-      routes,
-      history,
-    }),
-  )(createStore)(rootReducer, initialState);
+  )(createStore)(combineReducers(reducers), initialState);
 
   if (module.hot) {
     module.hot.accept('../reducers', () => {
